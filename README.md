@@ -1,7 +1,7 @@
 # easy-numpad
 jQuery based soft number pad which is developed use and customize easily
 
-<h3><a href="http://plugins.nayague.com/easy-numpad/" target="_blank">Live example<a/></h3>
+<h3><a href="https://plugins.nayague.com/easy-numpad/" target="_blank">Live example<a/></h3>
 
 * Single element usage.
 
