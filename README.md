@@ -1,11 +1,9 @@
 # easy-numpad
 A Fork form an original project by [Gayan Sandamal](https://github.com/gayanSandamal/easy-numpad).
 
-Currently it still uses JQuery, but I'm modifying the code to use only Javascript without external frameworks, in order to improve compatibility with all browsers and improve performance.
+I'm modifying the code to use only Javascript without external frameworks (_no JQuery required_), in order to improve compatibility with all browsers and improve performance.
 
 **Added a new feature**, when selecting an input field already valued, the value is also shown in the easy-numpad that opens.
-
-
 
 # How to use
 Simple add this code where you need, every time you need in your HTML page
@@ -17,3 +15,11 @@ Simple add this code where you need, every time you need in your HTML page
 # Try it
 
 [Live example of use it](https://bobboteck.github.io/easy-numpad/index.html)
+
+# Next steps
+Now, after use this control, I think to add same other feature:
+
+- Validation of the number entered
+- Enter the 0 automatically if the point is pressed first
+
+For every suggestion you can contact me.
