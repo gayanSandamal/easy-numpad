@@ -31,8 +31,9 @@ function show_easy_numpad(thisElement)
                     <td><a href="Cancel" class="cancel" id="cancel" onclick="easy_numpad_cancel()">Cancel</a></td>
                 </tr>
                 <tr>
-                    <td colspan="2" onclick="easynum(this)"><a href="0">0</a></td>
-                    <td onclick="easynum(this)"><a href=".">.</a></td>
+                    <td><a href="-" onclick="easynum(this)">-</a></td>
+					<td ><a href="0"onclick="easynum(this)">0</a></td>
+                    <td><a href="." onclick="easynum(this)">.</a></td>
                     <td><a href="Done" class="done" id="done" onclick="easy_numpad_done()">Done</a></td>
                 </tr>
             </table>
