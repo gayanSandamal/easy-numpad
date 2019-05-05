@@ -55,12 +55,12 @@ function easy_numpad_close()
 function easynum(thisElement)
 {
     event.preventDefault();
-    let buttonValue = "";
+
+    let currentValue = document.getElementById("easy-numpad-output").innerText;
 
     switch(thisElement.innerText)
     {
         case "±":
-            let currentValue = document.getElementById("easy-numpad-output").innerText;
             if(currentValue.startsWith("-"))
             {
                 document.getElementById("easy-numpad-output").innerText = currentValue.substring(1,currentValue.length);
@@ -70,7 +70,19 @@ function easynum(thisElement)
                 document.getElementById("easy-numpad-output").innerText = "-" + currentValue;
             }
         break;
-
+        case ".":
+            if(currentValue.length == 0)
+            {
+                document.getElementById("easy-numpad-output").innerText = "0.";
+            }
+            else
+            {
+                if(currentValue.indexOf(".") < 0)
+                {
+                    document.getElementById("easy-numpad-output").innerText += ".";
+                }
+            }
+        break;
         default:
             document.getElementById("easy-numpad-output").innerText += thisElement.innerText;
         break;
