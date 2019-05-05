@@ -113,6 +113,12 @@ function easy_numpad_done()
 {
     event.preventDefault();
     let easy_numpad_output_val = document.getElementById("easy-numpad-output").innerText;
-    document.getElementById(_outputID).value=easy_numpad_output_val;
+
+    if(easy_numpad_output_val.indexOf(".") === (easy_numpad_output_val.length - 1))
+    {
+        easy_numpad_output_val = easy_numpad_output_val.substring(0,easy_numpad_output_val.length - 1);
+    }
+
+    document.getElementById(_outputID).value = easy_numpad_output_val;
     easy_numpad_close();
 }
