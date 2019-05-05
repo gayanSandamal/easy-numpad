@@ -71,7 +71,7 @@ function easynum(thisElement)
             }
         break;
         case ".":
-            if(currentValue.length == 0)
+            if(currentValue.length === 0)
             {
                 document.getElementById("easy-numpad-output").innerText = "0.";
             }
@@ -81,6 +81,16 @@ function easynum(thisElement)
                 {
                     document.getElementById("easy-numpad-output").innerText += ".";
                 }
+            }
+        break;
+        case "0":
+            if(currentValue.length === 0)
+            {
+                document.getElementById("easy-numpad-output").innerText = "0.";
+            }
+            else
+            {
+                document.getElementById("easy-numpad-output").innerText += thisElement.innerText;
             }
         break;
         default:
