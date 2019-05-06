@@ -28,13 +28,15 @@ A list of new features implemented respect to the original:
 
 - When selecting an input field already valued, the value is also shown in the easy-numpad that opens
 - Added a "±" button to type negative numbers, and now only a "-" sign can be inserted in the head of number
+- Enter the "0" automatically if the "." is pressed first
+- Enter the "." automatically if the "0" is pressed first
+- ~~Validation of the number entered~~ implicit validation with the controls made on the insertion
 
-# Next steps
+# Next feature
 List of planned new features (more info at [Project page](https://github.com/bobboteck/easy-numpad/projects/1)):
 
-- Validation of the number entered
-- Enter the 0 automatically if the point is pressed first
+- Manage the insertion of an excessive number of characters
 - ...
 
-# Request
-If you need an unexpected functionality, open an [Issue](https://github.com/bobboteck/easy-numpad/issues) indicating your request.
+## Request feature o bug fixing
+If you need an unexpected functionality or if you want to report a bug, open an [Issue](https://github.com/bobboteck/easy-numpad/issues) indicating your request.
