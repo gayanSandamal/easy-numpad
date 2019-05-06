@@ -3,7 +3,7 @@ Easy Numpad is a pure HTML+JS+CSS control to implement a Numeric Pad in your HTM
 
 ![easy-numpad](https://repository-images.githubusercontent.com/184239909/d8d16880-6dc8-11e9-8290-366ce2f82d03)
 
-Based on a Fork form an original project by [Gayan Sandamal](https://github.com/gayanSandamal/easy-numpad).
+Based on a Fork from an original project by [Gayan Sandamal](https://github.com/gayanSandamal/easy-numpad).
 
 I'm modifying the code to use only Javascript without external frameworks (_no JQuery required_), in order to improve compatibility with all browsers and improve performance.
 
