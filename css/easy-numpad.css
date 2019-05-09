@@ -25,10 +25,11 @@ a {
 .easy-numpad-container {
     position: relative;
     width: 100%;
-    max-width: 300px;
+    max-width: 310px; /*max-width: 300px; per far rietrare i 10 caratteri più i segni . e - utilizzando il font Helvetica*/
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    background-color: lightgray; /*Aggiunto per migliorare la visibilità dei tasti*/
     padding: 10px;
 }
 a#easy-numpad-close {
@@ -43,6 +44,7 @@ a#easy-numpad-close {
 .easy-numpad-output-container {
     position: relative;
     width: 100%;
+    overflow: hidden; /*Aggiunto per nascondere i digit oltre lo spazio disponibile*/
 }
 .easy-numpad-output {
     width: 100%;
@@ -50,14 +52,14 @@ a#easy-numpad-close {
     background-color: rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
     margin: 0px;
-    text-align: center;
+    text-align: center;/*text-align: center;*/
     min-height: 60px;
     display: flex;
     display: -webkit-flex;
     align-items: center;
     -webkit-align-items: center;
     justify-content: center;
-    -webkit-justify-content: center;
+    -webkit-justify-content: flex-end;/*-webkit-justify-content: center;*/
     font-size: 50px;
 	border-radius: 6px;
 }

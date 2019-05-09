@@ -1,4 +1,7 @@
 let _outputID = "";
+let _minValue = null;
+let _maxValue = null;
+let _isInRange = true;
 
 function show_easy_numpad(thisElement)
 {
@@ -43,13 +46,15 @@ function show_easy_numpad(thisElement)
 
     document.getElementsByTagName('body')[0].appendChild(easy_numpad);
     _outputID = thisElement.id;
+    _minValue = document.getElementById(thisElement.id).getAttribute("min");
+    _maxValue = document.getElementById(thisElement.id).getAttribute("max");
     document.getElementById("easy-numpad-output").innerText = thisElement.value;
 }
 
 function easy_numpad_close()
 {
-    let elementToRemove = document.querySelectorAll("div.easy-numpad-frame")[0];
-    elementToRemove.parentNode.removeChild(elementToRemove);
+        let elementToRemove = document.querySelectorAll("div.easy-numpad-frame")[0];
+        elementToRemove.parentNode.removeChild(elementToRemove);
 }
 
 function easynum(thisElement)
@@ -71,32 +76,44 @@ function easynum(thisElement)
             }
         break;
         case ".":
-            if(currentValue.length === 0)
+            if(_isInRange)
             {
-                document.getElementById("easy-numpad-output").innerText = "0.";
-            }
-            else
-            {
-                if(currentValue.indexOf(".") < 0)
+                if(currentValue.length === 0)
                 {
-                    document.getElementById("easy-numpad-output").innerText += ".";
+                    document.getElementById("easy-numpad-output").innerText = "0.";
+                }
+                else
+                {
+                    if(currentValue.indexOf(".") < 0)
+                    {
+                        document.getElementById("easy-numpad-output").innerText += ".";
+                    }
                 }
             }
         break;
         case "0":
-            if(currentValue.length === 0)
+            if(_isInRange)
             {
-                document.getElementById("easy-numpad-output").innerText = "0.";
+                if(currentValue.length === 0)
+                {
+                    document.getElementById("easy-numpad-output").innerText = "0.";
+                }
+                else
+                {
+                    document.getElementById("easy-numpad-output").innerText += thisElement.innerText;
+                }
             }
-            else
+        break;
+        default:
+            if(_isInRange)
             {
                 document.getElementById("easy-numpad-output").innerText += thisElement.innerText;
             }
         break;
-        default:
-            document.getElementById("easy-numpad-output").innerText += thisElement.innerText;
-        break;
     }
+
+    let newValue = Number(document.getElementById("easy-numpad-output").innerText);
+    easy_numpad_check_range(newValue);
 }
 
 function easy_numpad_del()
@@ -105,6 +122,7 @@ function easy_numpad_del()
     let easy_numpad_output_val = document.getElementById("easy-numpad-output").innerText;
     var easy_numpad_output_val_deleted = easy_numpad_output_val.slice(0, -1);
     document.getElementById("easy-numpad-output").innerText = easy_numpad_output_val_deleted;
+    easy_numpad_check_range(Number(easy_numpad_output_val_deleted));
 }
 
 function easy_numpad_clear()
@@ -116,19 +134,83 @@ function easy_numpad_clear()
 function easy_numpad_cancel()
 {
     event.preventDefault();
-    easy_numpad_close();
+
+    if(_isInRange)
+    {
+        easy_numpad_close();
+    }
 }
 
 function easy_numpad_done() 
 {
     event.preventDefault();
-    let easy_numpad_output_val = document.getElementById("easy-numpad-output").innerText;
 
-    if(easy_numpad_output_val.indexOf(".") === (easy_numpad_output_val.length - 1))
+    if(_isInRange)
     {
-        easy_numpad_output_val = easy_numpad_output_val.substring(0,easy_numpad_output_val.length - 1);
-    }
+        let easy_numpad_output_val = document.getElementById("easy-numpad-output").innerText;
 
-    document.getElementById(_outputID).value = easy_numpad_output_val;
-    easy_numpad_close();
+        if(easy_numpad_output_val.indexOf(".") === (easy_numpad_output_val.length - 1))
+        {
+            easy_numpad_output_val = easy_numpad_output_val.substring(0,easy_numpad_output_val.length - 1);
+        }
+
+        document.getElementById(_outputID).value = easy_numpad_output_val;
+        easy_numpad_close();
+    }
+}
+
+function easy_numpad_check_range(value)
+{
+    let outputElement = document.getElementById("easy-numpad-output");
+    if(_maxValue != null && _minValue != null)
+    {
+        console.log("Range limit");
+        
+        if(value <= _maxValue && value >= _minValue)
+        {
+            outputElement.style.color = "black";
+            _isInRange = true;
+        }
+        else
+        {
+            outputElement.style.color = "red";
+            _isInRange = false;
+        }
+    }
+    else if(_maxValue != null)
+    {
+        console.log("Only upper limit");
+
+        if(value <= _maxValue)
+        {
+            outputElement.style.color = "black";
+            _isInRange = true;
+        }
+        else
+        {
+            outputElement.style.color = "red";
+            _isInRange = false;
+        }
+    }
+    else if (_minValue != null)
+    {
+        console.log("Only lower limit");
+
+        if(value >= _minValue)
+        {
+            outputElement.style.color = "black";
+            _isInRange = true;
+        }
+        else
+        {
+            outputElement.style.color = "red";
+            _isInRange = false;
+        }
+    }
+    else
+    {
+        console.log("No range limit");
+        outputElement.style.color = "black";
+        _isInRange = true;
+    }
 }

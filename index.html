@@ -80,13 +80,25 @@
         </div>
         <div class="page-container">
             <div style="width:100%;background-color:#9dff00;height:30px;padding-top:5px">
-                Valore 1: <input id="numero1" type="number" readonly="true" onclick="show_easy_numpad(this);" />
+                <div style="float:left;width:35%;text-align:right">Valore 1: </div>
+                <div style="float:left;width:30%">
+                    <input id="numero1" type="number" readonly="true" onclick="show_easy_numpad(this);" style="width:95%" />
+                </div>
+                <div style="float:left;width:35%;text-align:left">[esempio normale]</div>
             </div>
             <div style="width:100%;background-color:#00e1ff;height:30px;padding-top:5px">
-                Valore 2: <input id="numero2" type="number" value="125" readonly="true" onclick="show_easy_numpad(this);" />
+                <div style="float:left;width:35%;text-align:right">Valore 2: </div>
+                <div style="float:left;width:30%">
+                    <input id="numero2" type="number" value="125" readonly="true" onclick="show_easy_numpad(this);" style="width:95%" />
+                </div>
+                <div style="float:left;width:35%;text-align:left">[esempio con valore di default]</div>
             </div>
             <div style="width:100%;background-color:rgb(235, 150, 150);height:30px;padding-top:5px">
-                Valore 3: <input id="numero3" type="number" readonly="true" onclick="show_easy_numpad(this);" />
+                <div style="float:left;width:35%;text-align:right">Valore 3: </div>
+                <div style="float:left;width:30%">
+                    <input id="numero3" type="number" min="-12.5" max="30" readonly="true" onclick="show_easy_numpad(this);" style="width:95%" />
+                </div>
+                <div style="float:left;width:35%;text-align:left">[esempio con valori di min (-12.5) e max (30)]</div>
             </div>
         </div>
     </body>
