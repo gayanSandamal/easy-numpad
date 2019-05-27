@@ -82,6 +82,10 @@ function easynum(thisElement)
                 {
                     document.getElementById("easy-numpad-output").innerText = "0.";
                 }
+                else if(currentValue.length === 1 && currentValue === "-")
+                {
+                    document.getElementById("easy-numpad-output").innerText = currentValue + "0.";
+                }
                 else
                 {
                     if(currentValue.indexOf(".") < 0)
@@ -97,6 +101,10 @@ function easynum(thisElement)
                 if(currentValue.length === 0)
                 {
                     document.getElementById("easy-numpad-output").innerText = "0.";
+                }
+                else if(currentValue.length === 1 && currentValue === "-")
+                {
+                    document.getElementById("easy-numpad-output").innerText = currentValue + "0.";
                 }
                 else
                 {
