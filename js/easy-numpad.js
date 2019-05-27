@@ -128,9 +128,12 @@ function easy_numpad_del()
 {
     event.preventDefault();
     let easy_numpad_output_val = document.getElementById("easy-numpad-output").innerText;
-    var easy_numpad_output_val_deleted = easy_numpad_output_val.slice(0, -1);
-    document.getElementById("easy-numpad-output").innerText = easy_numpad_output_val_deleted;
-    easy_numpad_check_range(Number(easy_numpad_output_val_deleted));
+    if(easy_numpad_output_val.slice(-2) !== "0." && easy_numpad_output_val.slice(-3) !== "-0.")
+    {
+        var easy_numpad_output_val_deleted = easy_numpad_output_val.slice(0, -1);
+        document.getElementById("easy-numpad-output").innerText = easy_numpad_output_val_deleted;
+        easy_numpad_check_range(Number(easy_numpad_output_val_deleted));
+    }
 }
 
 function easy_numpad_clear()
